@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+.titulo {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+button {
+  background: #7a2d2d;
+}

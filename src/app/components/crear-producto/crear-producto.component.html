@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card"></div>
+      <div class="card-body text-center">
+        <span class="titulo">{{ titulo | uppercase }}</span>
+        <form
+          class="mt-3"
+          [formGroup]="productoForm"
+          (ngSubmit)="agregarPoducto()"
+        >
+          <div class="mb-3">
+            <input
+              type="text"
+              formControlName="producto"
+              class="form-control form-control-lg"
+              placeholder="Nombre">
+            <div class="text-danger"
+             *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched">
+              <span>El nombre  <strong>es obligatorio</strong></span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              formControlName="cedula"
+              
+              class="form-control form-control-lg"
+              placeholder="Cedula"
+            />
+            <div class="text-danger"
+            *ngIf="productoForm.get('cedula')?.hasError('required') && productoForm.get('cedula')?.touched">
+             <span>La cedula <strong>es obligatoria</strong></span>
+           </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              formControlName="correo"
+              class="form-control form-control-lg"
+              placeholder="Correo"
+            />
+            <div class="text-danger"
+            *ngIf="productoForm.get('correo')?.hasError('required') && productoForm.get('correo')?.touched">
+             <span>el correo <strong>es obligatoria</strong></span>
+           </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="number"
+              formControlName="pass"
+              class="form-control form-control-lg"
+              placeholder="Pass"
+            />
+            <div class="text-danger"
+            *ngIf="productoForm.get('pass')?.hasError('required') && productoForm.get('pass')?.touched">
+             <span>El pass <strong>es obligatorio</strong></span>
+           </div>
+          </div>
+          <div class="mb-3">
+            <button routerLink="/" class="btn btn-success btn-lg float-start">
+              volver
+            </button>
+            
+            <button
+              type="submit"
+              [disabled]="productoForm.invalid"
+              href='listar-producto'
+              class="btn btn-secondary btn-lg float-end"
+            >
+              aceptar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
